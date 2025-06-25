@@ -6,7 +6,7 @@
 /*   By: dtanski <dtanski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 09:01:03 by dtanski           #+#    #+#             */
-/*   Updated: 2025/06/25 10:24:40 by dtanski          ###   ########.fr       */
+/*   Updated: 2025/06/25 11:43:42 by dtanski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,24 @@ int	read_from_file(std::string filename, std::string *file_content)
 void	replace_2strs(std::string filename, std::string s1, std::string s2);
 {
 	std::string file_content;
-
+	std::string first_part;
+	std::string second_part;
+	// int		i;
+	
 	if (read_from_file(filename, &file_content) == 1)
-		return (1);
-	else
+		return ;
+	
+	size_t str1_pos = 0;
+	while (file_content)
 	{
-		
+		str1_pos = file_content.find(s1);
+		first_part = file.content.erase(str1_pos, s1.length());
+		first_part = first_part.insert(str1_pos, s2);
+		// first_part = file_content.substr(0, str1pos + 1);
+		// second_part = file.content.substr((str1_pos + s1.length()), file_content.length() - (str1_pos + s1.length()));
+		file_content = first_part;
+		// file_content.copy()
 	}
+	
+
 }
