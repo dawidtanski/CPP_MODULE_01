@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtanski <dtanski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 08:51:43 by dtanski           #+#    #+#             */
-/*   Updated: 2025/06/25 12:07:34 by dtanski          ###   ########.fr       */
+/*   Created: 2025/06/25 12:46:34 by dtanski           #+#    #+#             */
+/*   Updated: 2025/06/25 17:02:57 by dtanski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/replace_2strs.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main(int argc, char **argv)
+#include <iostream>
+
+class Harl
 {
-	if (argc != 4)
-	{
-		std::cerr << "Program takes 3 arguments as an input" << std::endl;
-		return (1);
-	}
-	else
-		replace_2strs(argv[1], argv[2], argv[3]);
-	return (0);
-}
+	private:
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+	public:
+		Harl();
+		~Harl();
+		void	complain( std::string level );
+	
+};
+
+#endif

@@ -5,21 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtanski <dtanski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 08:51:43 by dtanski           #+#    #+#             */
-/*   Updated: 2025/06/25 12:07:34 by dtanski          ###   ########.fr       */
+/*   Created: 2025/06/25 12:45:12 by dtanski           #+#    #+#             */
+/*   Updated: 2025/06/25 14:20:47 by dtanski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/replace_2strs.hpp"
+#include "../inc/Harl.hpp"
 
 int main(int argc, char **argv)
 {
-	if (argc != 4)
-	{
-		std::cerr << "Program takes 3 arguments as an input" << std::endl;
+	if (argc != 2)
 		return (1);
-	}
-	else
-		replace_2strs(argv[1], argv[2], argv[3]);
+	Harl harl;
+	harl.complain(argv[1]);
 	return (0);
 }

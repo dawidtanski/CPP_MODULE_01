@@ -6,9 +6,12 @@
 /*   By: dtanski <dtanski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:34:07 by dtanski           #+#    #+#             */
-/*   Updated: 2025/06/24 13:08:31 by dtanski          ###   ########.fr       */
+/*   Updated: 2025/06/25 17:04:47 by dtanski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMAN_A_HPP
+# define HUMA_A_HPP
 
 #include <iostream>
 #include "../inc/Weapon.hpp"
@@ -23,3 +26,5 @@ class HumanA
 		~HumanA();
 		void	attack() const;
 };
+
+#endif
