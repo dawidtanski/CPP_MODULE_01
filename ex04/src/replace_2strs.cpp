@@ -6,7 +6,7 @@
 /*   By: dtanski <dtanski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 09:01:03 by dtanski           #+#    #+#             */
-/*   Updated: 2025/06/25 12:37:16 by dtanski          ###   ########.fr       */
+/*   Updated: 2025/07/01 17:02:31 by dtanski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static int	read_from_file(std::string filename, std::string *file_content)
 
 static int	save_to_new_file(std::string filename, std::string data_to_save)
 {
-	// std::ofstream file("plik.txt");
 	std::string output_filename = filename + ".replace";
 	std::ofstream FileStream(output_filename.c_str());
 
@@ -54,17 +53,20 @@ int	replace_2strs(std::string filename, std::string s1, std::string s2)
 {
 	std::string file_content;
 	std::string modified_str;
-	// std::string second_part;
-	
+
 	if (read_from_file(filename, &file_content) == 1)
 		return (1);
 	
+	if (s1.empty())
+		return (save_to_new_file(filename, file_content));
+	
 	size_t str1_pos = 0;
-	while ((str1_pos = file_content.find(s1)) != std::string::npos)
+	while ((str1_pos = file_content.find(s1, str1_pos)) != std::string::npos)
 	{
 		modified_str = file_content.erase(str1_pos, s1.length());
 		modified_str = modified_str.insert(str1_pos, s2);
 		file_content = modified_str;
+		str1_pos += s2.length();
 	}
 	return (save_to_new_file(filename, file_content));
 }
